@@ -21,14 +21,7 @@ public class LinkedListChallenge {
         placeList.addFirst(new TownAndDistance("Sydney",0));
         var iterator = placeList.listIterator();
 
-        String consoleString = """
-                Available actions (Select word or letter):
-                (F)orward
-                (B)ackward
-                (L)ist Places
-                (M)enu
-                (Q)uit""";
-        System.out.println(consoleString);
+        printMenu();
         boolean flag = true;
         while(flag){
             String input = sc.nextLine();
@@ -41,9 +34,6 @@ public class LinkedListChallenge {
                 }
                 case "m", "menu" -> menu(iterator);
                 case "q", "quit" -> flag=false;
-            }
-            if(flag){
-                System.out.println(consoleString);
             }
         }
 
@@ -113,6 +103,16 @@ public class LinkedListChallenge {
                 particularPlace(town, Integer.parseInt(sc.nextLine()));
             }
         }
+    }
+    private static void printMenu(){
+        String consoleString = """
+                Available actions (Select word or letter):
+                (F)orward
+                (B)ackward
+                (L)ist Places
+                (M)enu
+                (Q)uit""";
+        System.out.println(consoleString);
     }
 }
 
