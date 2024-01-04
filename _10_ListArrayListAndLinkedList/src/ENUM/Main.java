@@ -14,6 +14,17 @@ public class Main {
                 System.out.println("Found a Friday!!!");
             }
         }
+
+        System.out.println("-".repeat(40));
+
+        switchDayOfTheWeek(getRandomdayOfTheWeek());
+
+        System.out.println("-".repeat(40));
+
+        var toppings = Toppings.values();
+        for(var topping : toppings){
+            System.out.println(topping.name() +" : "+topping.getPrice(topping));
+        }
     }
 
     private static DayOfTheWeek getRandomdayOfTheWeek(){
@@ -21,5 +32,15 @@ public class Main {
         var index  = new Random().nextInt(7);
 
         return week[index];
+    }
+
+    private static void switchDayOfTheWeek(DayOfTheWeek weekDay){
+        int weekDayInteger = weekDay.ordinal()+1;
+
+        switch (weekDay){
+            case TUES -> System.out.println("Tuesday is day "+ weekDayInteger);
+            case FRI -> System.out.println("Wednesday is day "+ weekDayInteger);
+            default -> System.out.println(weekDay.name().charAt(0)+weekDay.name().substring(1).toLowerCase()+" is day "+weekDayInteger);
+        }
     }
 }
